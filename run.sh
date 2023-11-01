@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/hemanthtadikonda/$COMPONENT.git
+git clone https://github.com/hemanthtadikonda/$COMPONENT
 cd $COMPONENT/schema
 
 if [ "$DB_TYPE" == "mysql"]; then
