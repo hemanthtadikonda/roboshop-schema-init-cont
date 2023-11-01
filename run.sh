@@ -8,6 +8,6 @@ if [ "$DB_TYPE" == "docdb" ]; then
 fi
 
 if [ "$DB_TYPE" == "docdb" ]; then
-  curl -o https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+  curl -o rds-combined-ca-bundle.pem https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
   aws ssm get-parameter  --name docdb.${env}.schema_setup --with-decryption | jq .Parameter.Value | sed -e 's/"//g' <$COMPONENT.js
 fi
