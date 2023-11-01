@@ -3,7 +3,7 @@
 git clone https://github.com/hemanthtadikonda/$COMPONENT
 cd $COMPONENT/schema
 
-if [ "$DB_TYPE" == "docdb" ]; then
+if [ "$DB_TYPE" == "sql" ]; then
   aws ssm get-parameter  --name sql.${env}.schema_setup --with-decryption | jq .Parameter.Value | sed -e 's/"//g' <$COMPONENT.sql
 fi
 
