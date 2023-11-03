@@ -3,7 +3,7 @@
 git clone https://github.com/hemanthtadikonda/$COMPONENT
 cd $COMPONENT/schema
 
-SCHEMA_SETUP=$(aws ssm get-parameter  --name ${$DB_TYPE}.${env}.schema_setup --with-decryption | jq .Parameter.Value | sed -e 's/"//g')
+SCHEMA_SETUP=$(aws ssm get-parameter  --name ${DB_TYPE}.${env}.schema_setup --with-decryption | jq .Parameter.Value | sed -e 's/"//g')
 
 if [ "$DB_TYPE" == "sql" ]; then
   ${SCHEMA_SETUP} <$COMPONENT.sql
